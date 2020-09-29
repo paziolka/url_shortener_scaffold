@@ -1,6 +1,11 @@
 class UrlsController < ApplicationController
   def index
     @urls = Url.all.order(created_at: :asc)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @urls.to_csv, filename: @urls.csv_filename }
+    end
   end
 
   def show
