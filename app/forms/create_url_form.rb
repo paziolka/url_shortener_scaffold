@@ -3,7 +3,7 @@ class CreateUrlForm
 
   attr_accessor :original
 
-  # TODO add more sophisticated validation of url.original
+  # TODO: add more sophisticated validation of url.original
   validates :original, presence: true
 
   def attributes

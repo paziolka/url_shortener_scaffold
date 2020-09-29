@@ -6,6 +6,7 @@ class CreateUrlService
   def call
     return false unless @form.valid?
 
+    # TODO: do not create if exists (find_or_create_by original)
     create_url
   end
 
@@ -18,7 +19,7 @@ class CreateUrlService
   end
 
   def attributes
-    form.attributes.merge(link: shortened_link)
+    form.attributes.merge!(link: shortened_link)
   end
 
   def shortened_link

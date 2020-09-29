@@ -5,7 +5,9 @@ class RedirectService
 
   def call
     return false unless url.present?
+    return false if link.nil?
 
+    # TODO: add any statistics you want here
     url.increment!(:visits)
   end
 
@@ -18,10 +20,10 @@ class RedirectService
   attr_reader :link
 
   def url
-    @url ||= Url.find(link)
+    @url ||= Url.find_by(link: link)
   end
 
   def original
-    original ||= @url.original
+    @original ||= url.original
   end
 end

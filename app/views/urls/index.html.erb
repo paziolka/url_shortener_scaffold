@@ -9,7 +9,6 @@
       <th>Original</th>
       <th>Link</th>
       <th>Visits</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -17,11 +16,8 @@
     <% @urls.each do |url| %>
       <tr>
         <td><%= url.original %></td>
-        <td><%= url.link %></td>
+        <td><%= link_to "#{request.base_url}/#{url.link}", url_path(url, link: url.link) %></td>
         <td><%= url.visits %></td>
-        <td><%= link_to 'Show', url %></td>
-        <td><%= link_to 'Edit', edit_url_path(url) %></td>
-        <td><%= link_to 'Destroy', url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
