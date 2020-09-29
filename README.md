@@ -7,3 +7,5 @@
 * Database creation `rake db:create`
 
 * How to run the test suite: `rspec`
+
+* How to run the rubocop checks: `rubocop`
